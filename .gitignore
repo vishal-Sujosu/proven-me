@@ -1,8 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnpm-store
+node_modules/
+**/node_modules/
+.pnpm-store
+**/.pnpm-store
 /.pnp
 .pnp.*
 .yarn/*
@@ -10,6 +12,18 @@
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
+package-lock.json
+
+# Turborepo
+.turbo/
+**/.turbo/
+
+# Next.js
+**/.next/
+/out/
+
+# production
+/build
 
 # testing
 /coverage
