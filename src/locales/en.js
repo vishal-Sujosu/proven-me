@@ -1,4 +1,4 @@
-const en = {
+ï»¿const en = {
   "login.title": "Sign in to your account",
   "login.subtitle": "Use your email and password to sign in.",
   "login.emailLabel": "Email address",
@@ -6,7 +6,7 @@ const en = {
   "login.passwordLabel": "Password",
   "login.passwordPlaceholder": "Enter your password",
   "login.submit": "Sign in",
-  "login.helpText": "Need help? Contact support if you can’t sign in.",
+  "login.helpText": "Need help? Contact support if you can't sign in.",
 };
 
 export default en;
