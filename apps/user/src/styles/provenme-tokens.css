@@ -1,0 +1,119 @@
+/* ===== ProvenMe Design Tokens ===== */
+
+:root {
+  /* Fonts */
+--fd: 'Cabinet Grotesk', var(--font-hanken), system-ui, sans-serif;
+--fs: var(--font-fraunces), Georgia, serif;
+--fm: var(--font-jetbrains), ui-monospace, monospace;
+
+  /* Default accent (violet) */
+  --acc: #6d54e8;
+  --acc-deep: #4f3ad1;
+  --acc-glow: rgba(109, 84, 232, 0.20);
+  --acc-tint: rgba(109, 84, 232, 0.10);
+
+  /* Brand gradient */
+  --brand-1: #6d4bd6;
+  --brand-2: #d6457f;
+  --brand-grad: linear-gradient(120deg, var(--brand-1), var(--brand-2));
+
+  /* Status / semantic colors */
+  --gold:   #f0b429;
+  --rose:   #f87171;
+  --green:  #4ade80;
+  --purple: #a78bfa;
+  --teal:   #2dd4bf;
+  --orange: #fb923c;
+
+  /* Tier colors */
+  --t-bronze:  #cd7f32;
+  --t-silver:  #b0bac8;
+  --t-gold:    #f0b429;
+  --t-diamond: #38bdf8;
+  --t-legend:  #c084fc;
+
+  /* Shadows */
+  --sh-sm: 0 2px 8px rgba(0,0,0,0.3);
+  --sh:    0 4px 16px rgba(0,0,0,0.4);
+  --sh-lg: 0 12px 48px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.4);
+
+  /* Density */
+  --pad-y:    1rem;
+  --section-y: clamp(64px, 8vw, 120px);
+}
+
+/* ---- Themes ---- */
+[data-theme="dark"] {
+  --bg: #07090c;
+  --s0: #0a0d12;
+  --s1: #0e1218;
+  --s2: #141923;
+  --s3: #1a2030;
+  --s4: #232a3d;
+  --l1: rgba(255,255,255,0.04);
+  --l2: rgba(255,255,255,0.08);
+  --l3: rgba(255,255,255,0.14);
+  --l4: rgba(255,255,255,0.22);
+  --t1: #e2eaf6;
+  --t2: #8da0bd;
+  --t3: #51627e;
+  --t4: #32405a;
+}
+
+[data-theme="light"] {
+  --bg: #f5f4fc;
+  --s0: #efeef9;
+  --s1: #ffffff;
+  --s2: #ffffff;
+  --s3: #f7f6fd;
+  --s4: #eceafa;
+  --l1: rgba(70,52,196,0.05);
+  --l2: rgba(70,52,196,0.09);
+  --l3: rgba(70,52,196,0.15);
+  --l4: rgba(70,52,196,0.24);
+  --t1: #0c0e2e;
+  --t2: #4b4e6d;
+  --t3: #8488a8;
+  --t4: #b4b7cc;
+  --sh-lg: 0 18px 50px rgba(60,45,150,0.12), 0 6px 18px rgba(60,45,150,0.07);
+  --sh:    0 6px 20px rgba(60,45,150,0.08);
+  --sh-sm: 0 2px 10px rgba(60,45,150,0.06);
+}
+
+/* ---- Accent palettes ---- */
+[data-accent="violet"] {
+  --acc: #8979ff; --acc-deep: #6d54e8;
+  --acc-glow: rgba(137,121,255,0.24);
+  --acc-tint: rgba(137,121,255,0.12);
+}
+[data-accent="blue"] {
+  --acc: #4fa3e0; --acc-deep: #1a6bbf;
+  --acc-glow: rgba(79,163,224,0.22);
+  --acc-tint: rgba(79,163,224,0.10);
+}
+[data-accent="teal"] {
+  --acc: #2dd4bf; --acc-deep: #0d9488;
+  --acc-glow: rgba(45,212,191,0.22);
+  --acc-tint: rgba(45,212,191,0.10);
+}
+[data-accent="amber"] {
+  --acc: #f0b429; --acc-deep: #c2750f;
+  --acc-glow: rgba(240,180,41,0.22);
+  --acc-tint: rgba(240,180,41,0.10);
+}
+
+/* Light-mode accent overrides */
+[data-theme="light"][data-accent="violet"] {
+  --acc: #5946e6; --acc-deep: #4634c4;
+  --acc-glow: rgba(89,70,230,0.20);
+  --acc-tint: rgba(89,70,230,0.09);
+}
+[data-theme="light"][data-accent="blue"]  { --acc: #1a6bbf; --acc-deep: #0c4d99; }
+[data-theme="light"][data-accent="teal"]  { --acc: #0d9488; --acc-deep: #0a6e64; }
+[data-theme="light"][data-accent="amber"] { --acc: #b45309; --acc-deep: #92400e; }
+
+/* ---- Density ---- */
+[data-density="compact"] {
+  --pad-y: 0.75rem;
+  --section-y: clamp(48px, 6vw, 80px);
+}

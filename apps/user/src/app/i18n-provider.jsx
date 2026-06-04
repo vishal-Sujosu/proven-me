@@ -4,11 +4,15 @@ import { useMemo, useState } from "react";
 import { IntlProvider } from "react-intl";
 import enMessages from "@/locales/en";
 import esMessages from "@/locales/es";
+import { useProvenMeTheme } from "@/components/ProvenMeProvider";
 
 const messages = {
   en: enMessages,
   es: esMessages,
 };
+
+const controlSelectClass =
+  "rounded-pm-sm border border-pm-l2 bg-pm-s2 px-2 py-1 text-sm font-semibold text-pm-t1 outline-none transition-all duration-150 focus:border-pm-accent focus:ring-2 focus:ring-pm-accent-glow hover:border-pm-l3";
 
 export default function I18nProvider({ children, initialLocale = "en" }) {
   const [locale, setLocale] = useState(initialLocale);
@@ -17,17 +21,55 @@ export default function I18nProvider({ children, initialLocale = "en" }) {
   return (
     <IntlProvider locale={locale} defaultLocale="en" messages={localeMessages} textComponent="span">
       {children}
-      <div className="fixed bottom-4 right-4 z-50 rounded-2xl border border-zinc-200 bg-white p-3 shadow-lg shadow-black/5 dark:border-zinc-700 dark:bg-zinc-950">
-        <label className="mr-2 font-medium text-zinc-700 dark:text-zinc-200">Language</label>
-        <select
-          value={locale}
-          onChange={(event) => setLocale(event.target.value)}
-          className="rounded border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none transition hover:border-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
-        >
-          <option value="en">English</option>
-          <option value="es">Español</option>
-        </select>
-      </div>
+      <ControlsWidget locale={locale} setLocale={setLocale} />
     </IntlProvider>
+  );
+}
+
+// Separate component so useProvenMeTheme() is called inside the tree
+// (ProvenMeProvider must be a parent of I18nProvider in your layout)
+function ControlsWidget({ locale, setLocale }) {
+  const { theme, setTheme } = useProvenMeTheme();
+
+  return (
+    /*
+     * .surface     → bg-pm-s1 + border-pm-l2 + rounded-pm-2xl   (combined utility)
+     * shadow-pm    → var(--sh)  themed shadow
+     * gap-x-3      → separates language from theme controls
+     * After the divider, theme toggle follows the exact same markup
+     * pattern as the language select — label + <select>
+     */
+    <div className="surface shadow-pm fixed bottom-4 right-4 z-50 flex items-center gap-x-3 px-4 py-2.5">
+
+      {/* ── LANGUAGE ─────────────────────────────────────── */}
+      <label className="text-sm font-semibold text-pm-t2">
+        Language
+      </label>
+      <select
+        value={locale}
+        onChange={(e) => setLocale(e.target.value)}
+        className={controlSelectClass}
+      >
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+
+      {/* ── DIVIDER — vertical 1px line using --l2 ────────── */}
+      <div className="h-5 w-px bg-pm-l2" />
+
+      {/* ── THEME ─────────────────────────────────────────── */}
+      <label className="text-sm font-semibold text-pm-t2">
+        Theme
+      </label>
+      <select
+        value={theme}
+        onChange={(e) => setTheme(e.target.value)}
+        className={controlSelectClass}
+      >
+        <option value="dark">🌙 Dark</option>
+        <option value="light">☀️ Light</option>
+      </select>
+
+    </div>
   );
 }

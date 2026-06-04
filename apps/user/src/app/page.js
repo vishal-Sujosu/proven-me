@@ -3,9 +3,9 @@ import { Button } from "@provenme/ui";
 
 export default function Home() {
   return (
-    <div className="page-shell">
+    <div className="w-full max-w-md rounded-[32px] border border-pm-l2 bg-pm-s1 p-10 shadow-pm-lg">
       <main className="page-main">
-        <div>
+        <div className="w-full max-w-md rounded-[32px] border border-pm-l2 bg-pm-s2 p-10 shadow-pm-lg">
           <h1>ProvenMe User Workspace</h1>
           <p>
             Your app is now running inside the Turborepo workspace at
