@@ -2,9 +2,9 @@
 
 :root {
   /* Fonts */
---fd: 'Cabinet Grotesk', var(--font-hanken), system-ui, sans-serif;
---fs: var(--font-fraunces), Georgia, serif;
---fm: var(--font-jetbrains), ui-monospace, monospace;
+--fd: 'Cabinet Grotesk', var(--font-hanken, system-ui), sans-serif;
+--fs: var(--font-fraunces, Georgia), serif;
+--fm: var(--font-jetbrains, ui-monospace), monospace;
 
   /* Default accent (violet) */
   --acc: #6d54e8;

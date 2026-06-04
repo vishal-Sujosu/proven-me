@@ -1,3 +1,5 @@
+import "@provenme/styles";
+
 export const metadata = {
   title: "ProvenMe Admin",
   description: "Admin panel placeholder",
@@ -5,7 +7,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      data-theme="dark"
+      data-accent="violet"
+      data-density="comfortable"
+    >
       <body>{children}</body>
     </html>
   );

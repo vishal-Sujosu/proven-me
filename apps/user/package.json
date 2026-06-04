@@ -12,6 +12,7 @@
   "dependencies": {
     "@provenme/api-client": "workspace:*",
     "@provenme/config": "workspace:*",
+    "@provenme/styles": "workspace:*",
     "@provenme/types": "workspace:*",
     "@provenme/ui": "workspace:*",
     "@provenme/validation": "workspace:*",
