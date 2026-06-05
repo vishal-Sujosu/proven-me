@@ -12,7 +12,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-pm-accent text-white hover:-translate-y-px hover:shadow-[0_10px_30px_var(--acc-glow)] transition-all",
+          "bg-pm-accent text-white hover:-translate-y-px hover:shadow-[0_10px_30px_var(--acc-glow)] transition-all p-4",
         destructive: "bg-pm-rose text-white hover:opacity-90",
         outline:
           "border border-pm-l3 bg-transparent text-pm-t1 hover:bg-pm-l1 hover:border-pm-l4",
