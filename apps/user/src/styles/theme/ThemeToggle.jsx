@@ -1,7 +1,7 @@
 // components/ThemeToggle.jsx — dropdown style, mirrors language toggler
 'use client'
 
-import { useProvenMeTheme } from '@/components/ProvenMeProvider'
+import { useProvenMeTheme } from '@/styles/theme/ThemeProvider'
 
 const THEMES = [
   { value: 'dark',  label: 'Dark',  icon: '🌙' },

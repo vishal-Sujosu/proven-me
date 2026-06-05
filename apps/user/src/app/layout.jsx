@@ -1,8 +1,8 @@
 
 import { Fraunces, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
-import I18nProvider from "./i18n-provider";
-import "./globals.css";
-import { ProvenMeProvider } from "@/components/ProvenMeProvider";
+import I18nProvider from "../lang/i18n-provider";
+import "../styles/globals.css";
+import { ProvenMeProvider } from "@/styles/theme/ThemeProvider";
 
 // Cabinet Grotesk is not in Google Fonts — load it from Fontshare via <link> in metadata
 

@@ -1,39 +1,21 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff, LoaderCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { FormattedMessage, useIntl } from "react-intl";
-import { z } from "zod";
 import { Button } from "@/components/ui/button";
+import { createLoginSchema } from "@/schema/login.schema";
 import { getApiErrorMessage, login } from "@/service/AuthService";
 
 const LoginPage = () => {
   const intl = useIntl();
   const [showPassword, setShowPassword] = useState(false);
   const [status, setStatus] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-  
 
   const loginSchema = useMemo(
-    () =>
-      z.object({
-        email: z
-          .string()
-          .trim()
-          .min(1, intl.formatMessage({ id: "login.emailRequired" }))
-          .email(intl.formatMessage({ id: "login.emailInvalid" })),
-        password: z
-          .string()
-          .min(1, intl.formatMessage({ id: "login.passwordRequired" })),
-      }),
+    () => createLoginSchema(intl.formatMessage),
     [intl],
   );
 
@@ -67,14 +49,6 @@ const LoginPage = () => {
       });
     }
   };
-
-  
-if (!isLoaded) {
-    return <div className="flex min-h-screen items-center justify-center">
-      <LoaderCircle className="animate-spin" size={48} />
-    </div>;
-  }
-
 
   return (
     <div className="min-h-screen bg-pm-bg text-pm-t1">

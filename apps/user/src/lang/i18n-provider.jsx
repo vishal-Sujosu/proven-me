@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { IntlProvider } from "react-intl";
 import enMessages from "@/locales/en";
 import esMessages from "@/locales/es";
-import { useProvenMeTheme } from "@/components/ProvenMeProvider";
+import { useProvenMeTheme } from "@/styles/theme/ThemeProvider";
 
 const messages = {
   en: enMessages,
