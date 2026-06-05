@@ -32,6 +32,8 @@
   --t-diamond: #38bdf8;
   --t-legend:  #c084fc;
 
+  --danger: #ff6b6b;
+
   /* Shadows */
   --sh-sm: 0 2px 8px rgba(0,0,0,0.3);
   --sh:    0 4px 16px rgba(0,0,0,0.4);

@@ -1,8 +1,9 @@
-
 import { Fraunces, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import I18nProvider from "../lang/i18n-provider";
 import "../styles/globals.css";
 import { ProvenMeProvider } from "@/styles/theme/ThemeProvider";
+import Header from "@/components/layout/home/Header";
+import Footer from "@/components/layout/home/Footer";
 
 // Cabinet Grotesk is not in Google Fonts — load it from Fontshare via <link> in metadata
 
@@ -51,7 +52,11 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ProvenMeProvider>
-          <I18nProvider>{children}</I18nProvider>
+          <I18nProvider>
+            <Header />
+            {children}
+            <Footer />
+          </I18nProvider>
         </ProvenMeProvider>
       </body>
     </html>
